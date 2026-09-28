@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Skills — Anthony Francis Sharu Skyla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root { --bg:#06080d; --surface:#0d1117; --card:#111820; --border:#1c2535; --gold:#c9a84c; --gold-light:#f0d080; --teal:#4ecdc4; --text:#e2e8f0; --muted:#64748b; --soft:#94a3b8; }
+        html,body { height:100%; background:var(--bg); color:var(--text); font-family:'Outfit',sans-serif; font-size:15px; line-height:1.7; overflow-x:hidden; }
+        ::-webkit-scrollbar{width:3px} ::-webkit-scrollbar-track{background:var(--bg)} ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+        /* NAV */
+        nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:1.1rem 5%; background:rgba(6,8,13,0.95); backdrop-filter:blur(18px); border-bottom:1px solid rgba(201,168,76,0.15); }
+        .nav-logo { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--gold); text-decoration:none; }
+        .nav-links { display:flex; gap:0.3rem; list-style:none; }
+        .nav-links a { color:var(--muted); text-decoration:none; font-size:0.78rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; padding:0.45rem 0.9rem; border-radius:4px; transition:color 0.2s, background 0.2s; }
+        .nav-links a:hover { color:var(--text); background:rgba(255,255,255,0.04); }
+        .nav-links a.active { color:var(--gold); background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.15); }
+
+        /* PAGE */
+        .page { min-height:100vh; display:flex; flex-direction:column; padding-top:64px; animation:pageIn 0.45s ease forwards; }
+        @keyframes pageIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+        /* SECTION */
+        .section-tag { font-size:0.7rem; font-weight:600; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.5rem; }
+        h2 { font-family:'Playfair Display',serif; font-weight:900; line-height:1.1; font-size:clamp(1.9rem,3.5vw,2.8rem); margin-bottom:0.5rem; }
+        .section-sub { color:var(--muted); max-width:520px; margin-bottom:3rem; font-size:0.9rem; }
+        .pill { font-size:0.72rem; padding:0.25rem 0.7rem; background:rgba(201,168,76,0.07); border:1px solid rgba(201,168,76,0.15); border-radius:20px; color:var(--soft); transition:all 0.15s; }
+        .pill:hover { background:rgba(201,168,76,0.14); color:var(--gold); }
+
+        /* SKILLS */
+        .skills-layout { flex:1; padding:3.5rem 5%; display:flex; flex-direction:column; }
+        .cat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-bottom:3rem; }
+        .cat-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:2rem; transition:border-color 0.25s, transform 0.25s; position:relative; overflow:hidden; }
+        .cat-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold),var(--teal)); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; }
+        .cat-card:hover { border-color:rgba(201,168,76,0.35); transform:translateY(-4px); }
+        .cat-card:hover::before { transform:scaleX(1); }
+        .cat-icon { font-size:2rem; margin-bottom:0.9rem; }
+        .cat-name { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:1.2rem; }
+        .pill-group { display:flex; flex-wrap:wrap; gap:0.45rem; }
+        .bars-section { margin-top:1rem; }
+        .bars-section h3 { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; margin-bottom:1.5rem; }
+        .bar-row { display:grid; grid-template-columns:140px 1fr auto; align-items:center; gap:1rem; margin-bottom:0.9rem; }
+        .bar-label { font-size:0.82rem; color:var(--soft); }
+        .bar-track { height:5px; background:var(--border); border-radius:3px; overflow:hidden; }
+        .bar-fill { height:100%; border-radius:3px; background:linear-gradient(90deg,var(--gold),var(--teal)); width:0; transition:width 1.2s cubic-bezier(0.4,0,0.2,1); }
+        .bar-pct { font-size:0.72rem; color:var(--gold); font-weight:600; min-width:36px; text-align:right; }
+        @media(max-width:900px){ .cat-grid{grid-template-columns:1fr} .bar-row{grid-template-columns:110px 1fr auto} }
+
+        /* FOOTER */
+        footer { padding:0; border-top:1px solid var(--border); background:var(--surface); }
+        .footer-inner { max-width:100%; }
+        .footer-top { display:grid; grid-template-columns:1.4fr 1.2fr; gap:3rem; padding:3rem 5%; align-items:start; }
+        .footer-name { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900; color:var(--gold); margin-bottom:0.4rem; }
+        .footer-tagline { color:var(--teal); font-size:0.82rem; font-weight:500; margin-bottom:1.2rem; letter-spacing:0.04em; }
+        .footer-badges { display:flex; flex-direction:row; flex-wrap:nowrap; gap:0.5rem; align-items:center; }
+        .fbadge { font-size:0.7rem; padding:0.25rem 0.7rem; background:rgba(201,168,76,0.07); border:1px solid rgba(201,168,76,0.15); border-radius:20px; color:var(--soft); white-space:nowrap; }
+        .footer-section-label { font-size:0.65rem; font-weight:700; color:var(--gold); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:1rem; }
+        .footer-email { display:block; color:var(--soft); text-decoration:none; font-size:0.82rem; margin-bottom:1.2rem; transition:color 0.2s; word-break:break-all; }
+        .footer-email:hover { color:var(--gold); }
+        .footer-socials { display:flex; flex-direction:row; gap:0.6rem; flex-wrap:nowrap; }
+        .fsoc { display:inline-flex; align-items:center; gap:0.45rem; padding:0.5rem 0.9rem; border:1px solid var(--border); border-radius:6px; color:var(--muted); text-decoration:none; font-size:0.75rem; font-weight:500; transition:all 0.2s; flex-shrink:0; }
+        .fsoc:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
+        .footer-bottom { border-top:1px solid var(--border); padding:1rem 5%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; }
+        .footer-bottom span { color:var(--muted); font-size:0.7rem; }
+        @media(max-width:900px){ .footer-top{grid-template-columns:1fr;gap:2rem;padding:2rem 4%;} .footer-bottom{padding:1rem 4%;justify-content:center;text-align:center;} }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="nav-logo" href="index.html">Sharu Skyla</a>
+    <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="skills.html" class="active">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="journey.html">Journey</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+<div class="page">
+    <div class="skills-layout">
+        <div class="section-tag">02 — Skills</div>
+        <h2>What I work with.</h2>
+        <p class="section-sub">Technologies and tools I've picked up through my Software Engineering degree and real-world projects.</p>
+        <div class="cat-grid">
+            <div class="cat-card"><div class="cat-icon">🎨</div><div class="cat-name">Frontend</div><div class="pill-group"><span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span><span class="pill">React</span><span class="pill">Tailwind CSS</span><span class="pill">Responsive Design</span></div></div>
+            <div class="cat-card"><div class="cat-icon">⚙️</div><div class="cat-name">Backend</div><div class="pill-group"><span class="pill">Java</span><span class="pill">Spring Boot</span><span class="pill">Node.js</span><span class="pill">Python</span><span class="pill">REST APIs</span><span class="pill">Maven</span></div></div>
+            <div class="cat-card"><div class="cat-icon">🗄️</div><div class="cat-name">Database & Tools</div><div class="pill-group"><span class="pill">MySQL</span><span class="pill">MongoDB</span><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">IntelliJ IDEA</span><span class="pill">VS Code</span></div></div>
+        </div>
+        <div class="bars-section">
+            <h3>Proficiency</h3>
+            <div class="bar-row"><span class="bar-label">Java</span><div class="bar-track"><div class="bar-fill" data-w="82"></div></div><span class="bar-pct">82%</span></div>
+            <div class="bar-row"><span class="bar-label">HTML / CSS</span><div class="bar-track"><div class="bar-fill" data-w="90"></div></div><span class="bar-pct">90%</span></div>
+            <div class="bar-row"><span class="bar-label">JavaScript</span><div class="bar-track"><div class="bar-fill" data-w="75"></div></div><span class="bar-pct">75%</span></div>
+            <div class="bar-row"><span class="bar-label">Python</span><div class="bar-track"><div class="bar-fill" data-w="68"></div></div><span class="bar-pct">68%</span></div>
+            <div class="bar-row"><span class="bar-label">Spring Boot</span><div class="bar-track"><div class="bar-fill" data-w="70"></div></div><span class="bar-pct">70%</span></div>
+            <div class="bar-row"><span class="bar-label">Git / GitHub</span><div class="bar-track"><div class="bar-fill" data-w="85"></div></div><span class="bar-pct">85%</span></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand-block">
+                    <div class="footer-name">Anthony Francis Sharu Skyla</div>
+                    <div class="footer-tagline">Software Engineer</div>
+                    <div class="footer-badges">
+                        <span class="fbadge">🎓 BSc SE Graduate</span>
+                        <span class="fbadge">👑 CS President</span>
+                    </div>
+                </div>
+                <div class="footer-contact-block">
+                    <div class="footer-section-label">Get In Touch</div>
+                    <a href="mailto:sharuanthonyfrancis@gmail.com" class="footer-email">sharuanthonyfrancis@gmail.com</a>
+                    <div class="footer-socials">
+                        <a href="https://github.com/AnthonyFrancisSharu" target="_blank" class="fsoc">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/sharu-anthonyfrancis/" target="_blank" class="fsoc">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+                            LinkedIn
+                        </a>
+                        <a href="mailto:sharuanthonyfrancis@gmail.com" class="fsoc">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Anthony Francis Sharu Skyla. All rights reserved.</span>
+                <span>Built with passion · Powered by code</span>
+            </div>
+        </div>
+    </footer>
+</div>
+<script>
+    const fills = document.querySelectorAll('.bar-fill');
+    const obs = new IntersectionObserver(e => { e.forEach(x => { if(x.isIntersecting){ x.target.style.width=x.target.dataset.w+'%'; obs.unobserve(x.target); } }); },{threshold:0.1});
+    fills.forEach(f=>obs.observe(f));
+</script>
+</body>
+</html>
